@@ -1,0 +1,16 @@
+{
+	"team" : "INF_A",
+	"mitglieder":
+	[
+	  {
+		"matrikelnummer": 3124518,
+		"name": "Marco Ermes Catulo",
+		"ilias" : "me6006s"
+	  },
+	  {
+		"matrikelnummer": 3241745,
+		"name": "Muhammad Shafiq bin Bazalanul Azam",
+		"ilias" : "mb2119s"
+	  }
+	]
+}

@@ -1,0 +1,30 @@
+Aufgabe, geschätzte Zeit, tatsächliche Zeit, Grund für Abweichung
+1	5	5
+2	2	2
+3	2	2
+4	30	60	unterschätzt wie viele Tags man googlen muss
+5	60	15	vergessen die Stopuhr zu starten, ist vermutlich eher 30-45
+6	10	15	musste noch bedeutung von einigen http header feldern googlen
+7	15	5	weniger Fehler als erwartet
+8	60	70	Aufwand unterschätzt
+9	120	110	-
+10	210	240	einige Attribute im CSS waren nicht kooperativ
+
+in Minuten
+
+Aufgabe 9_2
+font-family
+color
+font-weight
+text-decoration-line
+text-align
+border
+align-content
+margin-left
+margin-right
+background-color
+border-top
+display
+padding-left
+padding-right
+border-right

@@ -1,0 +1,58 @@
+/*
+- Praktikum DBWT. Autoren:
+- Marco, Catulo, 3124518
+- Shafiq, Azam, 3241745
+*/
+
+* { font-family: Verdana, sans-serif;}
+
+.grid-container { display: grid; grid-template-rows: 4em auto 4em; gap: 1em; padding: 0 1em; }
+
+.header { display: grid; grid-template-columns: 10% auto 10%; gap: 1em; border-bottom: thin solid black; }
+.header div { border: thin solid black; height: 3em; }
+#logo { ; }
+#navigation ul li { display: inline; padding: 0 1em; }
+#navigation a { color: turquoise; }
+
+.body { display: grid; grid-template-columns: 10% auto 10%; gap: 1em; }
+
+#center div:not(:first-child) { margin: 2em 0; }
+
+#banner { background-color: lightgrey; padding: 5em; border: thin solid black; }
+
+#Ankündigungen p { text-align: justify; border: thin solid black; }
+
+#Speisekarte table { text-align: center; border-collapse: collapse; width: 100%; }
+
+th { border-top: thin solid black; border-bottom: thin solid black; border-right: thin solid grey; }
+
+th:first-child { border-left: thin solid black; }
+
+th:last-child { border-right: thin solid black; }
+
+td { border-top: thin solid grey; border-right: thin solid grey; }
+
+td:first-child { text-align:left ; border-left: thin solid black; }
+
+td:nth-child(3) { border-right: thin solid black; }
+
+td:last-child { border-right: none; border-top: none; }
+
+img { width: 3em; }
+
+#Statistik ul { text-align: center; font-weight: bold; font-size: large; }
+
+#Statistik ul li { display: inline; padding: 0 1em; margin: 0 auto; }
+
+#newsletteranmeldung label:not(:last-child) { display: inline-block; color: grey; }
+
+#submit { margin-left: 30px; }
+
+#Wichtig ul { display: table; margin: 0 auto; }
+
+h1 { text-align: center; }
+
+.footer { border-top: thin solid black; }
+.footer { text-align: center; }
+.footer ul li { display: inline; padding: 0.5em 1em; text-align: center; border-right: thin solid grey; }
+.footer ul li:last-child { border-right: none; }
