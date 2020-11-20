@@ -1,9 +1,66 @@
 Aufgabe, geschätzte Zeit, tatsächliche Zeit, Grund für Abweichung
 1   |   15  |   30  |   newsletteranmeldungen.txt fehlte das s in news konnte datei deshalb nicht öffnen
 2   |   60  |   80  |   2d array aus txt einlesen und sortieren war knifflig
-4   |       |       |
-5   |       |       |
+4   |   60  |   60  |
+5   |   45  |   60  |   5-10 war sehr komplex
 6   |       |       |
 7   |       |       |
 8   |       |       |
 9   |       |       |
+
+Aufgabe 4-3
+create database db_emensa;
+
+use db_emensa;
+
+create table if not exists `gericht` (
+    `id` integer primary key, -- Primärschlüssel
+    `name` varchar(80) not null unique, -- Name des Gerichtes. Ein Name ist eindeutisch
+    `beschreibung` varchar(800) not null, -- Beschreibung des Gerichts
+    `erfasst am` date not null, -- Zeitpunkt der ersten Erfassung des Gerichts
+    `vegetarisch` boolean not null, -- Markierung, ob das Gericht vegetarisch ist. Standard: Nein
+    `vegan` boolean not null, -- Markierung, ob das Gericht vegan ist. Standard: Nein
+    `preis_intern` double not null, -- Preis für interne Personen (wie Studierende). Es gilt immer preis_intern > 0
+    `preis_extern` double not null -- Preis für externe Personen
+);
+
+alter table `gericht` add constraint nebenbedingung check (preis_intern <= preis_extern);
+alter table `gericht` add constraint preis_intern_groesser_null check (preis_intern > 0);
+
+create table if not exists `allergen` (
+    `code` char(4) primary key, -- Offizieller Abkürzungsbuchstabe für das Allergen
+    `name` varchar(300) not null, -- Name des Allergens, wie "Glutenhaltiges Getreide"
+    `typ` varchar(20) not null default 'Allergen' -- gibt den Typ an. Standard: "allergen"
+);
+
+create table if not exists `kategorie` (
+    `id` integer primary key, -- Primärschlüssel
+    `name` varchar(80) not null, -- Name der Kategorie, z.B. "Hauptgericht", "Vorspeise"
+    `eltern_id` integer, -- Referenz auf eine Eltern-Kategorie. zum Beispiel enthält die Kategorie "Hauptgericht" alle Gerichte die als Hauptgang vorgesehen sind
+    `bildname` varchar(200) -- Name der Bilddatei, die eine Darstellung der Kategorie enthält
+);
+
+alter table `kategorie` add foreign key (eltern_id) references kategorie(id);
+
+create table if not exists `gericht_hat_allergen` (
+    `code` char(4), -- Referenz auf Allergen
+    `gericht_id` integer not null -- Referenz auf das Gericht
+);
+
+alter table `gericht_hat_allergen` add foreign key (code) references allergen(code);
+alter table `gericht_hat_allergen` add foreign key (gericht_id) references gericht(id);
+
+create table if not exists `gericht_hat_kategorie` (
+    `gericht_id` integer not null, -- Referenz auf das Gericht
+    `kategorie_id` integer not null -- Referenz auf Kategorie
+);
+
+alter table `gericht_hat_kategorie` add foreign key (gericht_id) references gericht(id);
+alter table `gericht_hat_kategorie` add foreign key (kategorie_id) references kategorie(id);
+
+Aufgabe 4-5
+select count(*) from allergen;
+select count(*) from gericht;
+select count(*) from gericht_hat_allergen;
+select count(*) from gericht_hat_kategorie;
+select count(*) from kategorie;
